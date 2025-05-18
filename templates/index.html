@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>Latest Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3><a href="{{ url_for('post', post_id=post['id']) }}">{{ post['title'] }}</a></h3>
+                <p>{{ post['date'] }} by {{ post['author'] }}</p>
+                <p>{{ post['content'][:150] }}...</p> {# Display a snippet #}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
